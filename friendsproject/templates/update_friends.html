@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title></title>
+        {% include 'cdnlines.html' %}
+    </head>
+    <body>
+        <style>
+            form{
+                margin-left: 250px;
+                background: chartreuse;
+            }
+            h3{
+                text-align: center;
+                margin-top: 10px;
+            }
+            input{
+                margin-top: 10px;
+            }
+            body{
+                background: crimson;
+            }
+        </style>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <form method="POST" action="{% url 'update_friends_save' friends.id %}">
+                        {% csrf_token %}
+                        <h3>Please Update Your Data</h3>
+                        <!-- <label>Enter First Name:</label> -->
+                        <input type="text" class="form-control" name="fname" value="{{ friends.first_name }}" placeholder="First Name:">
+            
+                        <!-- <label>Enter Last Name:</label> -->
+                        <input type="text" class="form-control" name="lname" value="{{ friends.last_name }}" placeholder="Last Name:">
+            
+                        <!-- <label>Enter Your Mobile Number:</label> -->
+                        <input type="number" class="form-control" name="mobile" value="{{ friends.mobile }}" placeholder="Mobile Number:">
+            
+                        <!-- <label>Enter Your Email:</label> -->
+                        <input type="email" class="form-control" name="email" value="{{ friends.email }}" placeholder="Email ID:">
+            
+                        <!-- <label>Enter Your Gender:</label> -->
+                        <input type="text" class="form-control" name="gender" value="{{ friends.gender }}" placeholder="Gender:">
+            
+                        <!-- <label>Enter Your Location:</label> -->
+                        <input type="text" class="form-control" placeholder="Location:" value="{{ friends.location }}" name="loc">
+                        <center>
+                        <input type="submit" value="Update" class="btn btn-success">
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
